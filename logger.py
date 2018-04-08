@@ -100,7 +100,7 @@ while True:
     # print('current: ')
     # pprint.pprint(current)
 
-    if current['is_playing']:
+    if current is not None and current['is_playing']:
         # check to see if the current played song matches the most recently inserted one into the table
         # if not, then count this as a new play of the song
         # could do checking to see how long the song is being played, but for now will do a dumb insert
