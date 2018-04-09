@@ -179,4 +179,4 @@ while True:
         else:
             print('did not insert track details')
     # only update every 5s or so
-    time.sleep(5)
+    time.sleep(30)
