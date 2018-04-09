@@ -179,33 +179,4 @@ while True:
         else:
             print('did not insert track details')
     # only update every 5s or so
-    time.sleep(1)
-
-#
-#
-# # while True:
-#
-# # check for the playing status
-# # current = sp.current_user_playing_track()
-# current = sp.current_playback()
-# pprint.pprint(current)
-#
-# # only eval if the user is playing
-# if current['is_playing']:
-#     # get the track info by uri
-#     track_uri = current['item']['uri']
-#
-#     print('current track info: ')
-#
-#     track = sp.track(track_uri)
-#     pprint.pprint(track)
-#
-#     print('audio features: ')
-#
-#     features = sp.audio_features(track_uri)
-#     pprint.pprint(features)
-#
-#
-# #    pprint.pprint(current)
-#
-# time.sleep(1)
+    time.sleep(5)
