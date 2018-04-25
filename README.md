@@ -70,8 +70,14 @@ python3 main.py yourSpotifyUsername
 
 ### Example output
 
+Every 5 seconds, the title and first artist of the song you are playing will appear in the console, or `None` if
+nothing is playing.
+
 ```
 $ python3 main.py yourSpotifyUsername
+None
+None
+None
 Title: Main's Groan
 By: No Mana
 Title: Main's Groan
