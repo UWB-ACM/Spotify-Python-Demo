@@ -50,8 +50,12 @@ if __name__ == '__main__':
     # users may be hesitant to allow any application access to their personal data
     # so only include the scopes that you actually use
 
+    # each time you change your scopes, you'll have to get new user tokens. This means that
+    # all of your users will be signed out and unable to use your app, since it requires
+    # new permissions that they need to agree to
+
     # need permission to get currently playing track
-    scopes = 'user-read-currently-playing'
+    scopes = 'user-read-playback-state, user-read-currently-playing'
 
     # These environment variables either need to be set, or passed as parameters to the
     # prompt_for_user_token method.
@@ -65,6 +69,8 @@ if __name__ == '__main__':
     # Because we aren't actually hosting a web server, or a full application, we are not going to have
     # this redirect at all. Instead, set the redirect url to localhost. The prompt in the console
     # is going to ask you to copy the contents of the address bar in the console anyways.
+
+    # The redirect URL also must be specified on your developer dashboard, otherwise this will not work!
 
     user_token = spotipy.util.prompt_for_user_token(username, scopes, redirect_uri='http://localhost/')
 
@@ -80,8 +86,11 @@ if __name__ == '__main__':
         # use the web api to get information about the current user's playback
         current_playback = sp.current_playback()
 
-        # display this information in the console
-        pprint.pprint(current_playback)
+        if current_playback is not None:
+            # display this information in the console
+            pprint.pprint(current_playback)
+        else:
+            print('user is not listening to anything!')
 
         # wait for 5 seconds
 
