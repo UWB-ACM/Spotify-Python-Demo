@@ -1,4 +1,4 @@
-# SpotifyLogger
+# Spotify Python Demo
 
 A test application using the [spotipy library][spotipy-lib] and the [Spotify Web API][spotify-web-api] 
 that logs into the API for the supplied user, and prints out information about the song they are listening to
