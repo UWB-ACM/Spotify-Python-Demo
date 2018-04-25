@@ -1,7 +1,8 @@
 # SpotifyLogger
 
 A test application using the [spotipy library][spotipy-lib] and the [Spotify Web API][spotify-web-api] 
-that logs into the API for the supplied user, and polls the API for the playback information.
+that logs into the API for the supplied user, and prints out information about the song they are listening to
+every 5 seconds.
 
 ## Installation
 
@@ -50,16 +51,36 @@ you'll need to [set up a Spotify Web API application][spotify-web-api-setup].
    
    If you wish to preserve these settings between sessions you can add it to your `~/.bashrc`, however
    this may risk exposing them to other applications.
+
+4. Set up your redirect URL in the Spotify Dashboard.
+
+   For most other applications, you get redirected to spotify and back when connecting them to other services.
+   That's great, but we aren't bothering with webhosting for this project. The spotipy library gives you a utility
+   function that runs the automation process for you, but it tries to redirect for the webpage for your app.
+
+   By making your redirect url `http://localhost/`, you can get set up locally without the need for a web server.
    
 ## Usage
 
 You can run the application using the following command:
 
 ```bash
-python3 logger.py yourSpotifyUsername stats.db
+python3 main.py yourSpotifyUsername
 ```
 
-If `stats.db` does not exist, a new file will be created.
+### Example output
+
+```
+$ python3 main.py yourSpotifyUsername
+Title: Main's Groan
+By: No Mana
+Title: Main's Groan
+By: No Mana
+Title: Mind Mischief
+By: Tame Impala
+Title: Mind Mischief
+By: Tame Impala
+```
 
 #### First Time Usage Details
 
@@ -72,7 +93,7 @@ application, this just redirects to localhost. Follow the prompts given by the l
 given into the console window. 
 
 A new file will appear called `.cache-yourSpotifyUsername`. **Do not** check this into version control, and **do not** 
-leak this file. This contains a user token that is used to read information about this user.
+leak this file. This contains a user token that allows your application to interact with user data.
 
 [spotipy-lib]: https://github.com/plamere/spotipy
 [spotipy-lib-docs-getting-started]: http://spotipy.readthedocs.io/en/latest/#installation

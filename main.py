@@ -87,8 +87,12 @@ if __name__ == '__main__':
         current_playback = sp.current_playback()
 
         if current_playback is not None:
-            # display this information in the console
-            pprint.pprint(current_playback)
+            # un comment this if you want really verbose output
+            # pprint.pprint(current_playback)
+
+            # parse the JSON we get back into the information that we want out of it
+            print('Title:', current_playback['item']['name'])
+            print('By:', current_playback['item']['album']['artists'][0]['name'])
         else:
             print('user is not listening to anything!')
 
