@@ -11,8 +11,16 @@ is supported, so use that. You can check with `python3 --version`.
 
 Install the prerequisites with:
 
+Linux / Mac:
+
 ```bash
 python3 -m pip install -r requirements.txt 
+```
+
+Windows:
+
+```
+py -3 -m pip install -r requirements.txt
 ```
 
 ## Registering a Spotify Application
